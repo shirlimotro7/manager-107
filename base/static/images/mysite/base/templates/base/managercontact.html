@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href= "{% static '/css/main.css' %}"  rel='stylesheet' type=" text/css" >
+        <link href= "{% static '/css/main.css' %}"  rel='stylesheet' type=" text/css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div class="container">
+<h2> ALL LETTERS :</h2>
+
+ <table class="table table-hover ">        <thead>
+        <tr>
+            <th>date</th>
+            <th> Name</th>
+            <th> Personal Number</th>
+            <th>Content</th>
+            <th> Delete</th>
+        </tr>
+        </thead>
+{% for letter in letters %}
+        <tr>
+            <td>{{letter.date}} </td>
+            <td> {{letter.name}} </td>
+            <td> {{letter.personal_num}}</td>
+            <td> {{letter.content}}</td>
+               <td class="bigger"> <a  href="/deletecontact?letter_date={{letter.date}}&letter_personal_num={{letter.personal_num}}&letter_content={{letter.content}}&">
+           Delete </a></td>
+
+        </tr>
+{% endfor %}
+    </table>
+<a href="/profile" class="btn btn-primary btn-lg active "  role="button" aria-pressed="true">Back To Home</a>
+
+</div>
+
+</div>
+</body>
+
+
+</html

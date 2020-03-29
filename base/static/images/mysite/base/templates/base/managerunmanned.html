@@ -1,0 +1,42 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href= "{% static '/css/main.css' %}"  rel='stylesheet' type=" text/css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+<h2> All Unmanned Shifts! </h2>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="bigger">Number </th>
+            <th class="bigger">Date  </th>
+            <th class="bigger">Flight </th>
+            <th class="bigger"> Movil / Num2 / All</tH>
+            <th> pilot /nav</th>
+        </tr>
+        </thead>
+
+{% for available in unmanned %}
+        <tr class="bigger">
+            <td class="bigger">{{available.number}} </td>
+            <td class="bigger">{{available.flight_date}} </td>
+            <td class="bigger"> {{available.flight_type}}</td>
+            <td class="bigger">{{available.leader}}</td>
+            <td class="bigger">{{available.crew_role}}</td>
+        </tr>
+{% endfor %}
+    </table>
+    <a href="/profile" class="btn btn-primary btn-lg active "  role="button" aria-pressed="true">Back To Home</a>
+
+</body>
+</html>

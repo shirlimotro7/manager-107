@@ -1,0 +1,81 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href= "{% static '/css/main.css' %}"  rel='stylesheet' type=" text/css" >
+          <link rel="stylesheet" href="mysite\base\static\css\main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+
+<blockquote class="blockquote text-center">
+     Here are all the shifts Schedualed for you
+    <br>
+</blockquote>
+
+   <table class="table table-hover ">
+        <thead class="bigger">
+        <tr>
+            <th>Date</th>
+            <th>Type of Flight</th>
+            <th> Movil Or not</th>
+            <th>Notes</th>
+        </tr>
+        </thead>
+{% for myshift in my_shifts %}
+        <tr>
+            <td class=" bigger">{{myshift.flight_date}} </td>
+            <td  class=" bigger"> {{myshift.flight_type}}</td>
+            <td class="bigger">{{myshift.leader}}</td>
+            <td class="bigger">{{myshift.notes}}</td>
+        </tr>
+{% endfor %}
+    </table>
+</div>
+    <br>
+
+
+
+<div class="container">
+    <blockquote class="blockquote text-center">
+          All Your schedualed future shifts
+        <br>
+</blockquote>
+
+  <table class="table table-hover " >
+    <thead>
+      <tr class="bigger">
+        <th>Date</th>
+          <th>Type Of Flight</th>
+          <th> Movil Or Not</th>
+          <th> Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for shift in future_shifts %}
+        <tr>
+            <td class=" bigger"> {{shift.flight_date}}</td>
+            <td class = 'bigger'>{{shift.flight_type}}</td>
+            <td class=" bigger">{{shift.leader}}</td>
+            <td class=" bigger">{{shift.notes}} </td>
+        </tr>
+{% endfor %}
+
+    </tbody>
+  </table>
+<a href="/profile" class="btn btn-primary btn-lg active " role="button" aria-pressed="true">Back</a>
+
+</div>
+
+
+</body>
+</html>

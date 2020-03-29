@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href= "{% static '/css/main.css' %}"  rel='stylesheet' type=" text/css" >
+        <link href= "{% static '/css/main.css' %}"  rel='stylesheet' type=" text/css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2> Here are all the Jobs for this Period :</h2>
+
+ <table class="table table-hover ">        <thead>
+        <tr>
+            <th>date</th>
+            <th>type of flight</th>
+            <th>Notes</th>
+            <th> Delete Shift</th>
+        </tr>
+        </thead>
+{% for shift in all_jobs %}
+        <tr>
+            <td>{{shift.flight_date}} </td>
+            <td> {{shift.flight_type}}</td>
+            <td> {{shift.notes}}</td>
+ <td class="bigger"> <a  href="/deletejob?flight_date={{shift.flight_date}}&flight_type={{shift.flight_type}}&">
+             Delete </a></td>
+        </tr>
+{% endfor %}
+    </table>
+
+
+
+
+ <form  method="post">
+  <div class="container">
+      <h3> Add A New Shift Here</h3>
+      <br>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" onclick="/addjob"> Submit </button>
+      <hr>
+
+    </form>
+
+
+<a href="/profile" class="btn btn-primary btn-lg active "  role="button" aria-pressed="true">Back To Home</a>
+
+
+
+
+
+
+</body>
+
+
+</html>

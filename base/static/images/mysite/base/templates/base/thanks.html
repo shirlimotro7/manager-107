@@ -1,0 +1,31 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> shirli motro</title>
+    <link href= "{% static '/css/main.css' %}"  rel='stylesheet' type=" text/css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="
+    sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+    <body>
+      <h3> Here are all the air crew in the squadron  (including you) ! </h3>
+<table border = '1'>
+  {% for i in toda %}
+    <tr>
+
+      <td>{{i.name}}</td>
+        <td> {{i.last_name}} </td>
+        <td>{{i.category}}</td>
+        <td>{{i.personal_num}}</td>
+        <td>{{i.movil}}  </td>
+    </tr>
+
+  {% endfor %}
+</table>
+</body>
+
+
+</html>

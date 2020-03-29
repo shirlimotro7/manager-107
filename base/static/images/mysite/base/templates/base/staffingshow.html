@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <link href= "{% static '/css/main.css' %}"  rel='stylesheet' type=" text/css" >
+    <title>staffing</title>
+</head>
+<body>
+<h2> You have schedualed a new shift :</h2>
+<p> Date : {{flight_date}}
+    <p>Type :{{flight_type}} </p>
+<h2> You Can Add A New Shift Here!</h2>
+
+ <form  method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit"> Submit </button>
+    </form>
+
+</body>
+</html>
